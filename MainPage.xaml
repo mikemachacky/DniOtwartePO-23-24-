@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DniOtwartePOv1.MainPage">
+             x:Class="DniOtwartePOv1.MainPage"
+             Shell.NavBarIsVisible="false"
+           >
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
@@ -23,17 +25,18 @@
                  <!-- Wprowadzone operacje -->
         <Label x:Name="CurrentCalculation" 
                Grid.ColumnSpan="4" 
+               LineBreakMode="NoWrap"
                HorizontalTextAlignment="End" 
                VerticalTextAlignment="Start" 
                FontSize="22"
-               Text="00"/>
+              />
                 <!-- Wynik operacji -->
         <Label x:Name="resultText" 
                Grid.ColumnSpan="4"
                HorizontalTextAlignment="End" 
                VerticalTextAlignment="End" 
                FontSize="64"
-               Text="0"/>
+               />
         
                 <!-- Linia -->
         <BoxView Grid.ColumnSpan="4" 
@@ -47,16 +50,20 @@
         <!-- Pierwszy wiersz przycisków -->
         <Button Grid.Column="0"
                 Grid.Row="1"
-                Text="C"/>
+                Text="C"
+                Clicked="OnClear"/>
         <Button Grid.Column="1"
                 Grid.Row="1"
-                Text="+/-"/>
+                Text="+/-"
+                Clicked="OnNegative"/>
         <Button Grid.Column="2"
                 Grid.Row="1"
-                Text="%"/>
+                Text="%"
+                Clicked="OnPercentage"/>
         <Button Grid.Column="3"
                 Grid.Row="1"
-                Text="÷"/>
+                Text="÷"
+                Clicked="OnSelectOperator"/>
 
         <!-- Znak dzielenia -->
         <!-- NumLock włączony, trzymać lewy alt, na klawiaturze numerycznej wpisać 0247  ÷ -->
@@ -64,56 +71,72 @@
         <!-- NumLock włączony, trzymać lewy alt, na klawiaturze numerycznej wpisać 0215  ÷ -->
         <!-- Drugi wiersz przycisków -->
         <Button Grid.Column="0"
-         Grid.Row="2"
-         Text="7"/>
+                Grid.Row="2"
+                Text="7"
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="1"
-         Grid.Row="2"
-         Text="8"/>
+                Grid.Row="2"
+                Text="8"
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="2"
-         Grid.Row="2"
-         Text="9"/>
+                Grid.Row="2"
+                Text="9"
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="3"
-         Grid.Row="2"
-         Text="×"/>
+                Grid.Row="2"
+                Text="×"
+                Clicked="OnSelectOperator"/>
         <!-- Trzeci wiersz przycisków -->
         <Button Grid.Column="0"
                 Grid.Row="3"
-                Text="4"/>
+                Text="4"
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="1"
                 Grid.Row="3"
-                Text="5"/>
+                Text="5"
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="2"
                 Grid.Row="3"
-                Text="6"/>      
+                Text="6"
+                Clicked="OnSelectNumber"/>      
         <Button Grid.Column="3"
                  Grid.Row="3"
-                 Text="-"/>  
+                 Text="-"
+                 Clicked="OnSelectOperator"/>  
         <!-- Czwarty wiersz przycisków -->
         <Button Grid.Column="0"
-        Grid.Row="4"
-        Text="1"/>
+                Grid.Row="4"
+                Text="1"
+                 Clicked="OnSelectNumber"/>
         <Button Grid.Column="1"
-        Grid.Row="4"
-        Text="2"/>
+                Grid.Row="4"
+                Text="2"
+                 Clicked="OnSelectNumber"/>
         <Button Grid.Column="2"
-        Grid.Row="4"
-        Text="3"/>
+                Grid.Row="4"
+                Text="3"
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="3"
-         Grid.Row="4"
-         Text="+"/>
+                Grid.Row="4"
+                Text="+"
+                 Clicked="OnSelectOperator"/>
         <!-- Piąty wiersz przycisków -->
         <Button Grid.Column="0"
                 Grid.Row="5"
-                Text="00"/>
+                Text="00"
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="1"
                 Grid.Row="5"
-                Text="0"/>
+                Text="0"
+                 Clicked="OnSelectNumber"/>
         <Button Grid.Column="2"
                 Grid.Row="5"
-                Text="."/>
+                Text="."
+                Clicked="OnSelectNumber"/>
         <Button Grid.Column="3"
                 Grid.Row="5"
-                Text="="/>
+                Text="="
+                Clicked="OnCalculate"/>
     </Grid>
 
 </ContentPage>
